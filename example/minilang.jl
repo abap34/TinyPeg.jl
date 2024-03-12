@@ -146,7 +146,7 @@ source = Grammer(
     end
 )
 
-src = "a=1;b=2;c=3;d=a+b*c/3;println(d)"
+src = "a=1.5;b=2;c=3;d=a+b*c/3;println(d)"
 
 ast = parse!(source, src)
 
