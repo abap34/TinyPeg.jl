@@ -1,3 +1,5 @@
+using Term
+
 float = Grammer(
     PSeq(
         PRegex(r"[0-9]+"),
@@ -144,8 +146,26 @@ source = Grammer(
     end
 )
 
-ast = parse!(source, "a=1;b=2;c=3;d=a+b*c/3;println(d)")
+src = "a=1;b=2;c=3;d=a+b*c/3;println(d)"
 
-println(ast)
+ast = parse!(source, src)
 
+println(" [ src ]")
+tprint(src)
+
+println()
+println()
+
+
+println(" [ ast ]")
+println(Term.highlight_syntax(
+    string(ast)
+))
+
+println()
+
+
+println(" [ eval ]")
 eval(ast)
+
+println()
